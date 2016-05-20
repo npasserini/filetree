@@ -1,0 +1,15 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'FileTree',
+      #directory : 'repository',
+      #platforms : [ #pharo ],
+      #load : [ 'Git Tests' ]
+    }
+  ],
+  #testing : {
+  	#exclude : {
+  		#categories : [ 'OSProcess-Tests' ]
+  	}
+   }
+}

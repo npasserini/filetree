@@ -1,10 +1,12 @@
 private-commands
 runOSProcessGitCommand: anArrayOfStrings in: aDirectory
-	| c r d in out err |
-	in := ExternalPipe nonBlockingPipe.
-	out := ExternalPipe nonBlockingPipe.
-	err := ExternalPipe nonBlockingPipe.
-	[ c := PipeableOSProcess externalProxyClass
+	| classOfExternalPipe classOfPipeableOSProcess c r d in out err |
+	classOfExternalPipe := Smalltalk at: #ExternalPipe.
+	classOfPipeableOSProcess := Smalltalk at: #PipeableOSProcess.
+	in := classOfExternalPipe nonBlockingPipe.
+	out := classOfExternalPipe nonBlockingPipe.
+	err := classOfExternalPipe nonBlockingPipe.
+	[ c := classOfPipeableOSProcess externalProxyClass
 		programName: self gitCommand
 		arguments: anArrayOfStrings
 		initialEnvironment: nil.
@@ -17,17 +19,14 @@ runOSProcessGitCommand: anArrayOfStrings in: aDirectory
 	r := out upToEnd.
 	[ c update: #runState.
 	c isComplete ]
-		whileFalse:
-			[ (d ifNil: [ d := Delay forMilliseconds: 5 ]) wait.
+		whileFalse: [ (d ifNil: [ d := Delay forMilliseconds: 5 ]) wait.
 			r := r , out upToEnd ].
 	r := r , out upToEndOfFile.
 	c succeeded
-		ifFalse:
-			[ | errorString |
+		ifFalse: [ | errorString |
 			errorString := err upToEndOfFile.
 			errorString notEmpty
-				ifTrue: [ MCFileTreeGitError new
-						signal: 'Git error: ' , errorString ].
+				ifTrue: [ MCFileTreeGitError new signal: 'Git error: ' , errorString ].
 			r := '' ] ]
 		ensure: [ in close.
 			out close.
