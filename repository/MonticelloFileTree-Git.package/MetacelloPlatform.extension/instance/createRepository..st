@@ -23,6 +23,11 @@ createRepository: aRepositorySpec
 					^ cl new
 						directory: (self fileHandleOn: (aRepositorySpec description copyFrom: headerSize + 1 to: description size)) ] ].
 	Smalltalk
+		at: #Iceberg
+		ifPresent: [ :cl | 
+			type = 'github'
+				ifTrue: [ ^ cl mcRepositoryFor: aRepositorySpec description ] ].
+	Smalltalk
 		at: #MCGitHubRepository
 		ifPresent: [ :cl | 
 			type = 'github'
