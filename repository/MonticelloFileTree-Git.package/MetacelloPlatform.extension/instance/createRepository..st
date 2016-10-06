@@ -25,7 +25,7 @@ createRepository: aRepositorySpec
 	Smalltalk
 		at: #Iceberg
 		ifPresent: [ :cl | 
-			type = 'github'
+			(cl enableMetacelloIntegration and: [ type = 'github' ])
 				ifTrue: [ ^ cl mcRepositoryFor: aRepositorySpec description ] ].
 	Smalltalk
 		at: #MCGitHubRepository
