@@ -1,0 +1,26 @@
+{
+	"class" : {
+		"on:id:author:message:timeStamp:" : " 11/28/2016 11:42:15",
+		"on:id:author:message:timeStamp:repository:" : " 11/28/2016 11:42:15",
+		"on:id:info:" : " 11/28/2016 11:42:15",
+		"uuidFromGitSHA:package:" : " 11/28/2016 11:42:15",
+		"uuidFromSHA:" : " 11/28/2016 11:42:15" },
+	"instance" : {
+		"author:" : " 11/28/2016 11:42:15",
+		"commitID" : " 11/28/2016 11:42:15",
+		"commitID:" : " 11/28/2016 11:42:15",
+		"info" : " 11/28/2016 11:42:15",
+		"info:" : " 11/28/2016 11:42:15",
+		"message:" : " 11/28/2016 11:42:15",
+		"name" : " 11/28/2016 11:42:15",
+		"packageDirectory" : " 11/28/2016 11:42:15",
+		"packageDirectory:" : " 11/28/2016 11:42:15",
+		"parents:" : " 11/28/2016 11:42:15",
+		"printString" : " 11/28/2016 11:42:15",
+		"repository" : " 11/28/2016 11:42:15",
+		"repository:" : " 11/28/2016 11:42:15",
+		"setMCVersionInfoWithNumber:" : " 11/28/2016 11:42:15",
+		"shortCommitID" : " 11/28/2016 11:42:15",
+		"summary" : " 11/28/2016 11:42:15",
+		"timeStamp:" : " 11/28/2016 11:42:15",
+		"version" : " 11/28/2016 11:42:15" } }
